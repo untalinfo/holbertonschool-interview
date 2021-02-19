@@ -1,11 +1,21 @@
 #!/usr/bin/python3
-'''
+"""
 calculates the minimum amount of processes necessary
 to create a certain number of characters.
-'''
+"""
 
 
 def minOperations(n):
+    """
+    Min Operations
+
+    Args:
+        n (int): number of copies
+
+    Returns:
+        [int]: [minimun operations]
+    """
+
     p = 0
 
     if n <= 1:
