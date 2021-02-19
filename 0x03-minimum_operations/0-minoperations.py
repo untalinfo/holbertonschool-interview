@@ -18,7 +18,7 @@ def minOperations(n):
 
     p = 0
 
-    if n <= 1:
+    if n <= 1 or type(n) != int:
         return p
 
     for i in range(2, n + 1):
