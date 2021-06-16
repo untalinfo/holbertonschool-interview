@@ -30,8 +30,8 @@ def count_words(subreddit, word_list, first_call=True, after="", dic={}):
         d = r.json()
         if after is None:
             return dic
-        l = d.get('data', {}).get('children')
-        for i in l:
+        data = d.get('data', {}).get('children')
+        for i in data:
             title = i.get('data', {}).get('title').lower().split()
             for j in word_list:
                 for t in title:
