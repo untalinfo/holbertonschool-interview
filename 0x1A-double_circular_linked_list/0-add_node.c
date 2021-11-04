@@ -7,19 +7,19 @@
 */
 List *create_node(char *str)
 {
-    List *node;
+	List *node;
 
-    node = malloc(sizeof(*node));
-    if (!node)
-        return (NULL);
-    node->str = strdup(str);
-    if (!node->str)
-    {
-        free(node->str);
-        return (NULL);
-    }
-    node->next = node->prev = NULL;
-    return (node);
+	node = malloc(sizeof(*node));
+	if (!node)
+		return (NULL);
+	node->str = strdup(str);
+	if (!node->str)
+	{
+		free(node->str);
+		return (NULL);
+	}
+	node->next = node->prev = NULL;
+	return (node);
 }
 
 /**
@@ -30,28 +30,28 @@ List *create_node(char *str)
 */
 List *add_node_end(List **list, char *str)
 {
-    List *end, *node;
+	List *end, *node;
 
-    if (!list || !str)
-        return (NULL);
-    node = create_node(str);
-    if (!node)
-        return (NULL);
-    if (*list)
-    {
-        end = (*list)->prev;
-        end->next = node;
-        node->prev = end;
-        node->next = *list;
-        (*list)->prev = node;
-    }
-    else
-    {
-        *list = node;
-        node->prev = node->next = node;
-    }
+	if (!list || !str)
+		return (NULL);
+	node = create_node(str);
+	if (!node)
+		return (NULL);
+	if (*list)
+	{
+		end = (*list)->prev;
+		end->next = node;
+		node->prev = end;
+		node->next = *list;
+		(*list)->prev = node;
+	}
+	else
+	{
+		*list = node;
+		node->prev = node->next = node;
+	}
 
-    return (node);
+	return (node);
 }
 
 /**
@@ -62,5 +62,5 @@ List *add_node_end(List **list, char *str)
 */
 List *add_node_begin(List **list, char *str)
 {
-    return (add_node_end(list, str) ? *list = (*list)->prev : NULL);
+	return (add_node_end(list, str) ? *list = (*list)->prev : NULL);
 }
